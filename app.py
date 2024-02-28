@@ -27,9 +27,9 @@ Longitude = float(config.get('Location', 'Longitude'))
 
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
-SMTP_USERNAME = 'madhan.2105054@srec.ac.in'  # Replace with your email
-SMTP_PASSWORD = 'madhan2004'  # Replace with your email password
-RECIPIENT_EMAIL = 'madhan.2105054@srec.ac.in'  # Replace with recipient email
+SMTP_USERNAME = 'sample@gmail.com'  # Replace with your email
+SMTP_PASSWORD = 'password'  # Replace with your email password
+RECIPIENT_EMAIL = 'sample@gmail.com'  # Replace with recipient email
 
 Alarm_Status = False
 Fire_Reported = 0

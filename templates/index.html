@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fire Detection App</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            transition: background-color 0.3s ease;
+        }
+
+        p{
+            text-align: center;
+            font-size: 20px;
+            color: #fff;
+            text-transform:uppercase;
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+            background-color: #333;
+            padding: 10px;
+        }
+
+        nav a {
+            margin-left: 10px;
+            text-decoration: none;
+            font-family: sans;
+            text-transform: uppercase;
+            font-size: 30px;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ffd700; /* Change the color on hover */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+        }
+
+        form:hover {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+        }
+
+        input, button {
+            margin-bottom: 10px;
+            padding: 8px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        input:hover,
+        button:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        h1, h2 {
+            color:#fff;
+            text-align: center;
+            text-transform:uppercase;
+            transition: color 0.3s ease;
+        }
+
+        h1 {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5em; /* Adjust font size as needed */
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for effect */
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin: 0;
+            padding: 10px;
+            background-color: #333;
+            color: #ffd700; /* Text color */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add shadow for effect */
+            width: 100%;
+            z-index: 1000; /* Ensure it's on top of other elements */
+        }
+
+        #output-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        body.home {
+            background: url('https://www.ishn.com/ext/resources/900x550/fire-900.jpg?1583411594') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+        }
+
+        body.upload {
+            background: url('https://cdn.mos.cms.futurecdn.net/Z7STxMEovJyL8GF45PviiR-650-80.jpg.webp') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+    </style>
+</head>
+<body class="{% if page == 'home' %}home{% elif page == 'upload' %}upload{% endif %}">
+    <nav>
+        <a href="/">Home</a>
+        <a href="/upload">Upload</a>
+    </nav>
+    
+    {% if page == 'home' %}
+        <h1>Fire Detection</h1>
+    {% elif page == 'upload' %}
+        <h2>Upload Video</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".mp4, .avi" required>
+            <label for="start_detection">Start Detection</label>
+            <input type="checkbox" name="start_detection" id="start_detection">
+            <button type="submit">Submit</button>
+        </form>
+        {% if uploaded %}
+            <p>File uploaded successfully!</p>
+        {% endif %}
+        {% if detection_started %}
+            
+            
+        {% endif %}
+    {% endif %}
+</body>
+</html>
